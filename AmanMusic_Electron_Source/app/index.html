@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aman Music</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">🎵 Aman Music</div>
+      <div class="actions">
+        <label class="btn" for="folder">Add Folder</label>
+        <input id="folder" type="file" webkitdirectory directory multiple accept=".mp3,.m4a,.wav,.ogg" />
+        <input id="files" type="file" multiple accept=".mp3,.m4a,.wav,.ogg" style="display:none" />
+        <button id="addFiles" class="btn">Add Files</button>
+        <input id="search" class="search" placeholder="Search songs..." />
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="section-title">Playlists</div>
+        <div class="playlists" id="playlists">
+          <button class="pill active" data-pl="library">All Songs</button>
+          <button class="pill" id="createPlaylistBtn">+ New Playlist</button>
+        </div>
+        <div class="section-title">Now Playing Queue</div>
+        <ol id="queue" class="queue"></ol>
+      </aside>
+
+      <section class="content">
+        <div class="grid" id="library"></div>
+      </section>
+    </main>
+
+    <footer class="player">
+      <div class="now">
+        <div class="art" id="art">AM</div>
+        <div class="meta">
+          <div id="title" class="title">No song</div>
+          <div id="artist" class="artist">—</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="prev" class="icon" title="Previous">⏮</button>
+        <button id="play" class="icon big" title="Play/Pause">⏯</button>
+        <button id="next" class="icon" title="Next">⏭</button>
+        <button id="shuffle" class="icon" title="Shuffle">🔀</button>
+        <button id="repeat" class="icon" title="Repeat">🔁</button>
+      </div>
+
+      <div class="progress-wrap">
+        <span id="cur">0:00</span>
+        <input id="seek" type="range" min="0" max="100" value="0"/>
+        <span id="dur">0:00</span>
+      </div>
+
+      <div class="vol-wrap">
+        <span>🔊</span>
+        <input id="vol" type="range" min="0" max="1" step="0.01" value="1"/>
+      </div>
+
+      <audio id="audio"></audio>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

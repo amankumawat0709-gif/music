@@ -1,0 +1,35 @@
+{
+  "name": "aman-music",
+  "productName": "Aman Music",
+  "version": "1.0.0",
+  "description": "Aman Music - Samsung style local music player",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.aman.music",
+    "files": [
+      "app/**/*",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.6.0"
+  }
+}
